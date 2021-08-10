@@ -1,0 +1,118 @@
+---
+title: "Making and Indexing Data in R"
+author: "Connor Flynn"
+date: "8/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Make some vectors and check them out
+
+```{r}
+dogs <- c("teddy", "40", "TRUE", "banjo")
+dogs
+class(dogs)
+# character
+
+
+```
+```{r}
+dog_age <- c(1.4, 5.2, 6, 10)
+class(dog_age)
+typeof(dog_age)
+
+dog_miles <- c(4L, 5L, 6L)
+class(dog_miles)
+# integer
+typeof(dog_miles)
+# integer
+
+is.character(dogs)
+# is dogs a character? TRUE = Yes
+
+```
+```{r}
+dog_food <- c(teddy = "purina", 
+              khora = "alpo",
+              waffle = "fancy feast", 
+              banjo = "blue diamond")
+
+dog_food
+class(dog_food)
+
+dog_food[2]
+
+khora_food <- dog_food[2]
+khora_food
+
+
+```
+
+```{r}
+cars <- c("red", "white", "blue", "green", "grey", "purple")
+cars[2:5]
+
+i <- 3
+cars[i]
+
+i <- c(1, 5, 6)
+cars[i]
+
+
+cars[3] <- "burritos"
+cars
+```
+## Lists in R
+
+```{r}
+urchins <- list("blue", C(1, 2, 3), 
+                seq(from = 0,
+                    to =50, 
+                    by =0.5))
+
+urchins[[1]]
+
+urchins[1]
+
+# one square bracket returns list
+# double brackets return only content in list
+```
+
+```{r}
+tacos <- list(topping = c("onion", "cilantro", "guacomole"),
+              filling = c("beans", "meat", "veggies"),
+              price = c(6.75, 8.25, 9.50))
+
+taco_price <- tacos[[3]]
+taco_price
+
+tacos$filling
+
+
+
+```
+
+# data frames
+
+```{r}
+fruit <- data.frame(type = c("apple", "banana", "peach"), 
+                    mass = c(130, 195, 150))
+
+fruit
+
+class(fruit)
+
+class(fruit$mass)
+
+# these two do the same thing
+fruit$type
+fruit[, 1] #blank before comma = all
+
+
+```
+
